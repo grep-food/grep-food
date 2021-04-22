@@ -1,6 +1,6 @@
 # grep-food
 This application is about a journal that manages daily recipes for you.  
-
+```
 User {
   Int id;
   Name, Email, password;
@@ -27,3 +27,4 @@ TodoRecipe {
    Recipe recipe;
   Date reminderDate;
 }
+```
