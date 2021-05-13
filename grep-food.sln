@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grep-food", "grep-food\grep
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "grep-food.database", "grep-food-database\grep-food.database.sqlproj", "{573CF33A-B900-4815-9596-1CED20C2E60C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "grep-food.DataAccess", "grep-food.DataAccess\grep-food.DataAccess.csproj", "{E1D0BD1C-C18E-412D-8A8E-1460C8538A69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grep-food.DataAccess", "grep-food.DataAccess\grep-food.DataAccess.csproj", "{E1D0BD1C-C18E-412D-8A8E-1460C8538A69}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "grep-food-DB", "grep-food-DB\grep-food-DB.sqlproj", "{FB10505C-FD8F-44B5-8A80-47877DDD0B3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,12 @@ Global
 		{E1D0BD1C-C18E-412D-8A8E-1460C8538A69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1D0BD1C-C18E-412D-8A8E-1460C8538A69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1D0BD1C-C18E-412D-8A8E-1460C8538A69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB10505C-FD8F-44B5-8A80-47877DDD0B3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB10505C-FD8F-44B5-8A80-47877DDD0B3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB10505C-FD8F-44B5-8A80-47877DDD0B3B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FB10505C-FD8F-44B5-8A80-47877DDD0B3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB10505C-FD8F-44B5-8A80-47877DDD0B3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB10505C-FD8F-44B5-8A80-47877DDD0B3B}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
