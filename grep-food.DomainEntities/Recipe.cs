@@ -13,6 +13,10 @@ namespace grep_food.DomainEntities
 
         public Guid Id { get; set; }
 
-        public TimeSpan
+        public Utilites.Time time { get; set; }
+
+        public decimal Temperature{get; set;}
+
+        public int[] Ingredients { get; set; }
     }
 }
