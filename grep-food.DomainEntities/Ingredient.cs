@@ -10,7 +10,7 @@ namespace grep_food.DomainEntities
         public string Name { get; set; }
         public decimal Quantity { get; set; }
         
-        //for the ingredientes functionality LATER 
+        //for the ingredients functionality LATER 
         //public bool Selected { get; set; }
     }
 }

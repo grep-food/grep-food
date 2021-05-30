@@ -17,6 +17,6 @@ namespace grep_food.DomainEntities
 
         public decimal Temperature{get; set;}
 
-        public int[] Ingredients { get; set; }
+        public int[] IngredientsID { get; set; } //!!!!!
     }
 }
