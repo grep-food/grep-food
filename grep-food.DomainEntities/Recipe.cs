@@ -13,10 +13,9 @@ namespace grep_food.DomainEntities
 
         public Guid Id { get; set; }
 
-        public Utilites.Time time { get; set; }
+        public DateTime Time { get; set; }
 
-        public decimal Temperature{get; set;}
-
-        public int[] IngredientsID { get; set; } //!!!!!
+        public string Instructions { get; set; }
+        public Guid[] IngredientsID { get; set; } //!!!!!
     }
 }
