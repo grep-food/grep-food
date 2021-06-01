@@ -12,10 +12,14 @@ namespace grep_food.DomainEntities
         }
 
         public Guid Id { get; set; }
+        
+        public string Name { get; set; }
 
-        public DateTime Time { get; set; }
+        public Utilites.Time Time { get; set; }
 
         public string Instructions { get; set; }
         public Guid[] IngredientsID { get; set; } //!!!!!
+
+        public string ImagePath { get; set; }
     }
 }
