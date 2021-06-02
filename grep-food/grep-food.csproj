@@ -1,8 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>grep_food</RootNamespace>
+	<TargetFramework>netcoreapp3.1</TargetFramework>
+	<RootNamespace>grep_food</RootNamespace>
   </PropertyGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\grep-food.DomainEntities\grep-food.DomainEntities.csproj" />
+		<ProjectReference Include="..\grep-food.DataAccess\grep-food.DataAccess.csproj" />
+	</ItemGroup>
 
 </Project>
