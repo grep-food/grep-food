@@ -4,12 +4,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grep-food", "grep-food\grep-food.csproj", "{6705910D-7512-4242-AB85-3C2D38F67D61}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E1D0BD1C-C18E-412D-8A8E-1460C8538A69} = {E1D0BD1C-C18E-412D-8A8E-1460C8538A69}
+		{573CF33A-B900-4815-9596-1CED20C2E60C} = {573CF33A-B900-4815-9596-1CED20C2E60C}
+		{4EB3E276-4E6C-4D04-9A9B-C8186532A8DF} = {4EB3E276-4E6C-4D04-9A9B-C8186532A8DF}
+		{D4C41EC6-DAB7-4508-9075-6D4DDC3E2A14} = {D4C41EC6-DAB7-4508-9075-6D4DDC3E2A14}
+	EndProjectSection
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "grep-food.database", "grep-food-database\grep-food.database.sqlproj", "{573CF33A-B900-4815-9596-1CED20C2E60C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grep-food.DataAccess", "grep-food.DataAccess\grep-food.DataAccess.csproj", "{E1D0BD1C-C18E-412D-8A8E-1460C8538A69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "grep-food.DomainEntities", "grep-food.DomainEntities\grep-food.DomainEntities.csproj", "{4EB3E276-4E6C-4D04-9A9B-C8186532A8DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grep-food.DomainEntities", "grep-food.DomainEntities\grep-food.DomainEntities.csproj", "{4EB3E276-4E6C-4D04-9A9B-C8186532A8DF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "grep-food.Utilites", "grep-food.Utilites\grep-food.Utilites.csproj", "{D4C41EC6-DAB7-4508-9075-6D4DDC3E2A14}"
 EndProject
