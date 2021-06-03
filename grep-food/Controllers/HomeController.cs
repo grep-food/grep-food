@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using grep_food.DataAccess;
+using grep_food.DomainEntities;
 
 namespace grep_food.Controllers
 {
@@ -27,15 +28,21 @@ namespace grep_food.Controllers
         public IActionResult Recipe()
         {
 
-            //var data = _dataRepository.Query<AccountHolder>().Take(10).ToArray();
-            //return View(data.Select(x => new AccountHolderViewModel
-            //{
-            //    FirstName = x.FirstName,
-            //    Id = x.Id,
-            //    IdNo = x.IdNo,
-            //    LastName = x.LastName
-            //}));
-            return View();   
+            var data = _dataRepository.Query<RecipeViewModel>().Take(10).ToArray();
+            return View(data.Select(x => new RecipeViewModel
+            {
+                //    FirstName = x.FirstName,
+                //    Id = x.Id,
+                //    IdNo = x.IdNo,
+                //    LastName = x.LastName
+                Id = x.Id,
+                Name = x.Name,
+                TimeMinutes = x.TimeMinutes,
+                Instructions = x.Instructions,
+                Image = x.Image
+
+            }));
+             
         }
 
         public IActionResult Privacy()
