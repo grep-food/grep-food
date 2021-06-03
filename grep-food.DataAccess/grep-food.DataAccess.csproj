@@ -9,4 +9,9 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\grep-food.DomainEntities\grep-food.DomainEntities.csproj" />
+    <ProjectReference Include="..\grep-food.Utilites\grep-food.Utilites.csproj" />
+  </ItemGroup>
+
 </Project>

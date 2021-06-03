@@ -1,25 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace grep_food.DomainEntities
+namespace grep_food.Models
 {
-    public class Recipe
+    public class RecipeModel
     {
-        public Recipe()
-        {
-            Id = Guid.NewGuid();
-
-        }
-
         public Guid Id { get; set; }
-        
+
         public string Name { get; set; }
 
         public Utilites.Time Time { get; set; }
 
         public string Instructions { get; set; }
-        public List<Guid> IngredientsID { get; set; } //!!!!!
+        public List<Guid> IngredientsID { get; set; } 
 
         public string ImagePath { get; set; }
     }

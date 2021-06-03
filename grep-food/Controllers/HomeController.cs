@@ -7,6 +7,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using grep_food.DataAccess;
+using grep_food.Models;
+using grep_food.DomainEntities;
 
 namespace grep_food.Controllers
 {

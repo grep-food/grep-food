@@ -4,6 +4,11 @@
 	<TargetFramework>netcoreapp3.1</TargetFramework>
 	<RootNamespace>grep_food</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.6" />
+  </ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\grep-food.DomainEntities\grep-food.DomainEntities.csproj" />
 		<ProjectReference Include="..\grep-food.DataAccess\grep-food.DataAccess.csproj" />
