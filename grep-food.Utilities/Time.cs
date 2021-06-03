@@ -11,7 +11,11 @@ namespace grep_food.Utilites
         public uint Hours { get; set; }
         public uint Minutes { get; set; }
 
-
+        public Time(int min)
+        {
+            this.Minutes = (uint)min%60;
+            this.Hours = (uint)min / 60;
+        }
         public Time(uint h, uint min)
         {
             if (min >= 60)
