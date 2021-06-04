@@ -8,7 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,10 +51,13 @@ public void ConfigureServices(IServiceCollection services)
             services.AddDbContext<DataContext>(opt =>
             opt.UseSqlServer(Configuration.GetConnectionString("grep-food")));
 
+          
+
             // Refactor to separate method
 
             services.AddTransient<IEntityTypeConfigurationRegistrar, EntityTypeConfigurationRegistrar>();
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
