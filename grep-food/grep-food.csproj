@@ -14,7 +14,6 @@
 		<ProjectReference Include="..\grep-food.DomainEntities\grep-food.DomainEntities.csproj" />
 		<ProjectReference Include="..\grep-food.DataAccess\grep-food.DataAccess.csproj" />
 		<ProjectReference Include="..\grep-food.DomainEntitiesMappings\grep-food.DomainEntitiesMappings.csproj" />
-		<ProjectReference Include="..\Tap2021Demo.Infrastructure.DataAccess\Tap2021Demo.Infrastructure.DataAccess.csproj" />
 	</ItemGroup>
 
 </Project>

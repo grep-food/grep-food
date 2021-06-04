@@ -25,24 +25,21 @@ namespace grep_food.Controllers
         }
 
         public IActionResult Index()
-        {/*
-            var data2 = _dataRepository.Query<BaseIngredient>().ToList();
-            Console.WriteLine($"data: '{data2}' data-siz '{data2.Count}'");
+        {
+            var data2 = _dataRepository.Query<RecipeViewModel>().OrderBy(recipe=>recipe.Name).First();
+            //Console.WriteLine($"data: '{data2}' data-siz '{data2.Id}'");
             
-        */
-            return View();
+            
+            return Recipe(data2.Name);
 
         }
-        public IActionResult Recipe()
+        public IActionResult Recipe(string name)
         {
-           
+            Console.WriteLine($"Retzipe neim: '{name}'");
             var data = _dataRepository.Query<RecipeViewModel>().Take(10).ToArray();
             return View(data.Select(x => new RecipeViewModel
             {
-                //    FirstName = x.FirstName,
-                //    Id = x.Id,
-                //    IdNo = x.IdNo,
-                //    LastName = x.LastName
+               
                 Id = x.Id,
                 Name = x.Name,
                 TimeMinutes = x.TimeMinutes,
