@@ -17,9 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grep-food.DomainEntities", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grep-food.DomainEntitiesMappings", "grep-food.DomainEntitiesMappings\grep-food.DomainEntitiesMappings.csproj", "{570DCD0D-BF7D-4BC9-A7BD-45884B6E8730}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "grep-food.Utilities", "grep-food.Utilities\grep-food.Utilities.csproj", "{FA7CA4E1-23AC-4647-9B05-8F433CA4AC04}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tap2021Demo.Infrastructure.DataAccess", "Tap2021Demo.Infrastructure.DataAccess\Tap2021Demo.Infrastructure.DataAccess.csproj", "{17C0E954-6188-4098-AD44-A227DB35028A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grep-food.Utilities", "grep-food.Utilities\grep-food.Utilities.csproj", "{FA7CA4E1-23AC-4647-9B05-8F433CA4AC04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +51,6 @@ Global
 		{FA7CA4E1-23AC-4647-9B05-8F433CA4AC04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA7CA4E1-23AC-4647-9B05-8F433CA4AC04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA7CA4E1-23AC-4647-9B05-8F433CA4AC04}.Release|Any CPU.Build.0 = Release|Any CPU
-		{17C0E954-6188-4098-AD44-A227DB35028A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{17C0E954-6188-4098-AD44-A227DB35028A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{17C0E954-6188-4098-AD44-A227DB35028A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{17C0E954-6188-4098-AD44-A227DB35028A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
