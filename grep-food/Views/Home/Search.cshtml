@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Search";
+    ViewData["ShowButtons"] = true;
+
+   
+}
+<h1>Search</h1>
+
+
+<style>
+    .btn{
+        width:75px;
+    }
+
+ </style>
+
+<form method="get">
+    <div class="input-group">
+        <input class="form-control" <!--asp-for=""-->>
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+    </div>
+</form>
