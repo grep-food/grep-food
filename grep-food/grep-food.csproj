@@ -12,6 +12,7 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
   </ItemGroup>
 	<ItemGroup>
+		<ProjectReference Include="..\grep-food-database\grep-food.database.sqlproj" />
 		<ProjectReference Include="..\grep-food.DomainEntities\grep-food.DomainEntities.csproj" />
 		<ProjectReference Include="..\grep-food.DataAccess\grep-food.DataAccess.csproj" />
 		<ProjectReference Include="..\grep-food.DomainEntitiesMappings\grep-food.DomainEntitiesMappings.csproj" />

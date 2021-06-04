@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\grep-food.DomainEntities\grep-food.DomainEntities.csproj" />
-    <ProjectReference Include="..\grep-food.Utilites\grep-food.Utilites.csproj" />
   </ItemGroup>
 
 </Project>
