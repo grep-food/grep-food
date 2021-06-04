@@ -1,12 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>grep_food.DomainEntities</RootNamespace>
+	<TargetFramework>netcoreapp3.1</TargetFramework>
+	<RootNamespace>grep_food.DomainEntities</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\grep-food.Utilites\grep-food.Utilites.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.6" />
   </ItemGroup>
-
+	<ItemGroup>
+		<ProjectReference Include="..\grep-food.Utilities\grep-food.Utilities.csproj" />
+	</ItemGroup>
 </Project>

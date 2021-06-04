@@ -16,7 +16,7 @@ namespace grep_food.DomainEntities
         
         public string Name { get; set; }
 
-        public Utilites.Time Time { get; set; }
+      //  public Utilites.Time Time { get; set; }
 
         public string Instructions { get; set; }
         public List<Guid> IngredientsID { get; set; } //!!!!!

@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFramework>netcoreapp3.1</TargetFramework>
+	<RootNamespace>grep_food.DomainEntitiesMappings</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.6" />
+  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\grep-food.DomainEntities\grep-food.DomainEntities.csproj" />
+		<ProjectReference Include="..\grep-food.DataAccess\grep-food.DataAccess.csproj" />
+	</ItemGroup>
+
+</Project>
