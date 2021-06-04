@@ -23,13 +23,13 @@ namespace grep_food
             Configuration = configuration;
             
             Console.WriteLine("before ree");
-            /*string cs= "Data Source=(localdb)\\ProjectsV13;Initial Catalog=grep-food.database;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            string cs= "Data Source=(localdb)\\ProjectsV13;Initial Catalog=grep-food.database;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             using (SqlConnection conn = new SqlConnection(cs))
             {
                 conn.Open(); // throws if invalid
             }
             Console.WriteLine("after ree");
-            */
+          
 
         }
 
@@ -70,7 +70,7 @@ public void ConfigureServices(IServiceCollection services)
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+           
             app.UseRouting();
             
             app.UseAuthorization();

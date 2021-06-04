@@ -10,13 +10,13 @@ namespace grep_food.DataAccess.Dto
         {
         }
 
-        public RecipeDto(Guid id, string name, Utilites.Time time, string instructions, List<Guid> ingredientsId, string imagePath)
+        public RecipeDto(Guid id, string name, int time, string instructions,  string imagePath)
         {
             Id = id;
             Name = name;
             Time = time;
             Instructions = instructions;
-            IngredientsID = ingredientsId;
+           // IngredientsID = ingredientsId;
             ImagePath = imagePath;
 
           
@@ -25,11 +25,11 @@ namespace grep_food.DataAccess.Dto
         public Guid Id { get; set; }
         public string Name { get; set; }
 
-        public Utilites.Time Time { get; set; }
+        public int Time { get; set; }
 
         public string Instructions { get; set; }
        // public Guid[] IngredientsID { get; set; } 
-        public List<Guid> IngredientsID { get; set; }
+      //  public IEnumerable<Guid> IngredientsID { get; set; }
 
         public string ImagePath { get; set; }
     }
