@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using grep_food.DomainEntities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+
 
 namespace grep_food.DataAccess
 {
@@ -15,6 +17,7 @@ namespace grep_food.DataAccess
 
         //        //options. ("Data Source=(localdb)\\ProjectsV13;Initial Catalog=grep-food.database;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         //}
+
         public override string ToString()
         {
             return "Oh bo";
@@ -29,6 +32,8 @@ namespace grep_food.DataAccess
             SaveChanges();
         }
 
+        public DbSet<BaseIngredient> baseIngredient { get; set; }
+        public DbSet<Recipe> recipe { get; set; }
         public void Delete<TEntity>(TEntity entity) where TEntity : class
         {
             Delete(entity);

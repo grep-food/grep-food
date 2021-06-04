@@ -21,6 +21,8 @@ namespace grep_food
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                   
                 });
     }
 }
+    
