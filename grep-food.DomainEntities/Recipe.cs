@@ -9,6 +9,7 @@ namespace grep_food.DomainEntities
         public Recipe()
         {
             Id = Guid.NewGuid();
+
         }
 
         public Guid Id { get; set; }
@@ -18,7 +19,7 @@ namespace grep_food.DomainEntities
       //  public Utilites.Time Time { get; set; }
 
         public string Instructions { get; set; }
-        public Guid[] IngredientsID { get; set; } //!!!!!
+        public List<Guid> IngredientsID { get; set; } //!!!!!
 
         public string ImagePath { get; set; }
     }

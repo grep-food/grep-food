@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,7 @@ namespace grep_food
 // This method gets called by the runtime. Use this method to add services to the container.
 public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddScoped<IDataRepository, DataContext>();
             services.AddControllersWithViews();
             services.AddTransient<IUnitOfWork, DataContext>();
             services.AddTransient<IDataRepository, DataContext>();
