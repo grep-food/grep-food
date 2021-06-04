@@ -22,14 +22,7 @@ namespace grep_food
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            
-            Console.WriteLine("before ree");
-            string cs= "Data Source=(localdb)\\ProjectsV13;Initial Catalog=grep-food.database;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            using (SqlConnection conn = new SqlConnection(cs))
-            {
-                conn.Open(); // throws if invalid
-            }
-            Console.WriteLine("after ree");
+           
           
 
         }
@@ -37,8 +30,8 @@ namespace grep_food
         public IConfiguration Configuration { get; }
         
 
-// This method gets called by the runtime. Use this method to add services to the container.
-public void ConfigureServices(IServiceCollection services)
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
         {
             //services.AddScoped<IDataRepository, DataContext>();
             services.AddControllersWithViews();

@@ -11,17 +11,9 @@ namespace grep_food.DataAccess
 {
     public class DataContext : DbContext, IDataRepository, IUnitOfWork
     {
-        //protected override void OnConfiguring(DbContextOptionsBuilder options)
-        //{
-        //    if (options.IsConfigured == false)
+      
 
-        //        //options. ("Data Source=(localdb)\\ProjectsV13;Initial Catalog=grep-food.database;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-        //}
-
-        public override string ToString()
-        {
-            return "Oh bo";
-        }
+     
         public DataContext(DbContextOptions<DataContext> contextOptions) : base(contextOptions)
         {
             

@@ -10,6 +10,8 @@ namespace grep_food.DomainEntitiesMappings
         {
             modelBuilder.ApplyConfiguration(new RecipeMapping());
             modelBuilder.ApplyConfiguration(new BaseIngredientMapping());
+            modelBuilder.ApplyConfiguration(new IngredientMapping());
+            modelBuilder.ApplyConfiguration(new RecipeIngredientMapping());
         }
     }
 
