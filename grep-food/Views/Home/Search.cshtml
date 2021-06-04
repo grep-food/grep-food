@@ -2,22 +2,21 @@
     ViewData["Title"] = "Search";
     ViewData["ShowButtons"] = true;
 
-   
+
 }
 @model IEnumerable<grep_food.Models.BaseIngredientViewModel>
 <h1>Search</h1>
 
 
 <style>
-    .btn{
-        width:75px;
+    .btn {
+        width: 75px;
     }
-
- </style>
+</style>
 
 <form method="get">
     <div class="input-group">
-        <input class="form-control" <!--asp-for=""-->>
+        <input class="form-control">
         <div class="input-group-append">
             <button class="btn btn-primary" type="submit">Search</button>
         </div>
@@ -30,6 +29,23 @@
         <tr>BaseIngredient Name</tr>
     </thead>
     <tbody>
-        
+        @if (Model == null)
+        {
+            <tr>
+                <td>
+                    Ingredient doesn't exists!!!!
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                </tr>
+            }
+        }
     </tbody>
 </table>
