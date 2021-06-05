@@ -1,41 +1,48 @@
-﻿@{
-    ViewData["Title"] = "Recipe";
+﻿@model grep_food.Models.RecipeViewModel
+
+@{
+    ViewData["Title"] = Model.Name;
     ViewData["ShowButtons"] = true;
 
-
 }
-@*@model IEnumerable<grep_food.Models.BaseIngredientViewModel>*@
-<html>
 
-
-<head>
-
-    <style>
-        body {
-            background-color: #000000;
-            font-size: xxx-large;
-            color: steelblue;
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
-
-</head>
-<body>
-
-    Hello werdl
-    <table>
-        @*@foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Name</td>
-            </tr>
-        }*@
-
-    </table>
-</body>
-
-</html>
 @{
 
+}
+
+<body>
+
+
+
+    <h1>
+        @Model.Name
+    </h1>    <br />
+    <h3>
+        Ingredients:
+    </h3>
+    @foreach (var ing in Model.Ingredients)
+    {
+        <div>
+            @ing.Name
+        </div>
+    }
+
+    Time to prepare: @Model.Time<br />
+    <h3>Instructions:</h3>
+
+    
+    @for (int i = 0; i < Model.Instructions.Length; i++)
+    {<p>
+            Step @(i+1) :
+            @Model.Instructions[i]
+        </p>
+    }
+
+    Img:  <img src="@Model.Image" width="300" />
+
+</body>
+
+
+@{
+    Console.WriteLine(Model.Ingredients);
 }

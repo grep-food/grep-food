@@ -10,6 +10,7 @@ namespace grep_food.DomainEntitiesMappings
         {
             builder.ToTable("Ingredients")
              .HasKey(_ => _.Id);
+            
         }
     }
 }

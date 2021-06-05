@@ -12,8 +12,8 @@ namespace grep_food.Models
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public int TimeMinutes { get; set; }
-        public string Instructions { get; set; }
+        public Utilities.Time Time { get; set; }
+        public string[] Instructions { get; set; }
         public string Image { get; set; }
 
         public List<IngredientViewModel> Ingredients { get; set; }
@@ -30,14 +30,15 @@ namespace grep_food.Models
             {
                 Id = data.Id,
                 Name = data.Name,
-                TimeMinutes = data.TimeMinutes,
-                Instructions = data.Instructions,
+                Time =  new Utilities.Time(data.TimeMinutes),
+                Instructions = SeparateInstructions(data.Instructions),
                 Image = data.Image,
 
                 Ingredients = ingredients.ToList()
             };
         }
 
+        public static string[] SeparateInstructions(string Instructions) => Instructions.Split('\n');
 
     }
 }
