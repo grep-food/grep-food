@@ -51,7 +51,7 @@ namespace grep_food.Controllers
 
             }));
              
-            return View();
+            //return View();
         }
 
         public IActionResult Privacy()
@@ -61,7 +61,13 @@ namespace grep_food.Controllers
 
         public IActionResult Search()
         {
-            return View();
+            var data = _dataRepository.Query<BaseIngredient>().Take(15).ToArray();
+            return View(data.Select(x => new BaseIngredientViewModel
+            {
+                Id = x.Id,
+                Name = x.Name,
+
+            }));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -4,8 +4,8 @@
 
 
 }
-@model IEnumerable<grep_food.Models.BaseIngredientViewModel>
-<h1>Search</h1>
+
+<h1>Choose your Ingredients</h1>
 
 
 <style>
@@ -14,38 +14,31 @@
     }
 </style>
 
-<form method="get">
-    <div class="input-group">
-        <input class="form-control">
-        <div class="input-group-append">
-            <button class="btn btn-primary" type="submit">Search</button>
-        </div>
-    </div>
-</form>
-<br /> <br />
+<br />
 <table>
-    <thead>
-        <tr>BaseIngredient Id</tr>
-        <tr>BaseIngredient Name</tr>
-    </thead>
-    <tbody>
-        @if (Model == null)
+    @if (Model == null)
+    {
+        <tr>
+            <td>
+                Ingredient doesn't exists!!!!
+            </td>
+        </tr>
+    }
+    else
+    {
+        foreach (var item in Model)
         {
             <tr>
                 <td>
-                    Ingredient doesn't exists!!!!
+                    <input id="isActive" name="isActive" type="checkbox" value="false" /> @item.Name
                 </td>
             </tr>
         }
-        else
-        {
-            foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Name</td>
-                </tr>
-            }
-        }
-    </tbody>
+    }
 </table>
+<br />
+<br />
+<div class="input-group-append">
+    <button class="btn btn-primary" name="Start" type="submit"  onclick="location.href='@Url.Action("Index", "Home")'"> START </button>
+</div>
+
