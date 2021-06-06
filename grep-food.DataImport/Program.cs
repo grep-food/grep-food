@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using grep_food.Utilities;
 
 
@@ -60,7 +61,10 @@ namespace grep_food.DataImport
         }
         static void AddValues(SqlConnection conn)
         {
-            var insertvalues = SQLfiles.ScriptsIgnoredOnImport.Split("\nGO\n");
+            string[] insertvalues = Regex.Split(SQLfiles.ScriptsIgnoredOnImport,
+                                         "\n *GO *\n");
+             
+            //var insertvalues = SQLfiles.ScriptsIgnoredOnImport.Split("\nGO\n");
             foreach(var insert in insertvalues)
             {
                 Console.WriteLine("inserted stuff: " + insert);
