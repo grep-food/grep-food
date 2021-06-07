@@ -27,15 +27,6 @@ namespace grep_food.Controllers
         }
 
         public IActionResult Index()
-        {/*
-            var data2 = _dataRepository.Query<BaseIngredient>().ToList();
-            Console.WriteLine($"data: '{data2}' data-siz '{data2.Count}'");
-            
-        */
-            return View();
-
-        }
-        public IActionResult Recipe()
         {
            
             var data = _dataRepository.Query<RecipeViewModel>().Take(10).ToArray();
@@ -54,7 +45,9 @@ namespace grep_food.Controllers
             }));
              
             //return View();
+
         }
+     
 
         public IActionResult Privacy()
         {
@@ -71,7 +64,7 @@ namespace grep_food.Controllers
                   Name = x.Name
              }).ToList());
         }
-
+       
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
