@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using grep_food.DataAccess;
 using grep_food.DomainEntities;
+using System.Dynamic;
+
 //using Tap2021Demo.Infrastructure.DataAccess;
 
 namespace grep_food.Controllers
@@ -27,9 +29,22 @@ namespace grep_food.Controllers
         public IActionResult Index()
         {
            
-            
-            
-            return View();
+            var data = _dataRepository.Query<RecipeViewModel>().Take(10).ToArray();
+            return View(data.Select(x => new RecipeViewModel
+            {
+                //    FirstName = x.FirstName,
+                //    Id = x.Id,
+                //    IdNo = x.IdNo,
+                //    LastName = x.LastName
+                Id = x.Id,
+                Name = x.Name,
+                TimeMinutes = x.TimeMinutes,
+                Instructions = x.Instructions,
+                Image = x.Image
+
+            }));
+             
+            //return View();
 
         }
      
@@ -41,7 +56,13 @@ namespace grep_food.Controllers
 
         public IActionResult Search()
         {
-            return View();
+             var data = _dataRepository.Query<BaseIngredient>().Take(15).ToArray();
+
+             return View(data.Select(x => new BaseIngredientViewModel
+              {
+                  Id = x.Id,
+                  Name = x.Name
+             }).ToList());
         }
        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
