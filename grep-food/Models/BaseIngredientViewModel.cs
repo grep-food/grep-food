@@ -8,7 +8,7 @@ namespace grep_food.Models
         public Guid Id { get; set; }
         public string Name { get; set; }
 
-        public bool isChecked { get; set; }
+        public bool isChecked{ get; set; }
 
         public int Count() {
             return 0;

@@ -10,16 +10,18 @@ namespace grep_food.Controllers
     public class SearchController : Controller
     {
         [HttpPost]
-        public IActionResult Index(List<String> model)
+        public IActionResult Index(List<BaseIngredientViewModel> Baseing)
         {
-            //Console.WriteLine(model.Name.ToString());
-            Console.WriteLine("AAA");
-            Console.WriteLine( model.Count());
-            for (int i = 0; i < model.Count(); i++) { 
-                Console.WriteLine(model[i]);
-                Console.WriteLine("BBB");
-            }
-            return View();
+                Console.WriteLine("length " + Baseing.Count());
+                foreach (var ids in Baseing)
+                {
+                    Console.WriteLine("id: " + ids.Name + " select: " + ids.isChecked);
+
+
+
+                }
+
+                return View();
         }
     }
 }

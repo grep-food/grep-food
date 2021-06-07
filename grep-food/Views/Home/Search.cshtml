@@ -1,10 +1,13 @@
-﻿@{
+﻿@model List<BaseIngredientViewModel>
+@{
     ViewData["Title"] = "Search";
     ViewData["ShowButtons"] = true;
+
 
 }
 
 <h1>Choose your Ingredients</h1>
+
 
 <style>
     .btn {
@@ -13,47 +16,42 @@
 </style>
 
 <br />
-
-@if (Model == null)
+@using (Html.BeginForm("Index", "Search", FormMethod.Post))
 {
-    <tr>
-        <td>
-            Ingredient doesn't exists!!!!
-        </td>
-    </tr>
-}
-else
-{
+    <table>
+        @if (Model == null)
+        {
+            <tr>
+                <td>
+                    Ingredient doesn't exists!!!!
+                </td>
+            </tr>
+        }
+        else
+        {
 
-    @using (Html.BeginForm("Index", "Search"))
-    {
-        <table>
-            @foreach (var item in Model)
+            for (int i = 0; i < Model.Count(); i++)
             {
+
+
                 <tr>
                     <td>
+                        @* <input id="@(item.Id)" name="@(item.Id)" type="checkbox" value="false" /> @item.Name*@
+                        @Html.CheckBoxFor(m => m[i].isChecked)
 
-                        <input name="checkIngredient" type="checkbox" value="@item.Name" /> @item.Name
-                    <script>var data1 = $('#checkIngredient').attr('value');</script>
+                        @Html.DisplayFor(m => m[i].Name)
+                        @Html.HiddenFor(m => m[i].Name)
+                        @Html.HiddenFor(m => m[i].Id)
 
                     </td>
                 </tr>
             }
-        </table>
-        <div class="input-group-append">
-            <button class="btn btn-primary" name="Start" type="submit"> START </button>
-        </div>
-    }
+
+        }
+    </table>
+    <div class="input-group-append">
+        <button class="btn btn-primary" name="Start" type="submit"> START </button>
+    </div>
 }
-
-<script>
-
-    $.ajax({
-        type: "GET",
-        url: "SearchController\Index",
-        data: { input1: data1, input2: data2 },
-    });
-</script>
-
 <br />
 <br />

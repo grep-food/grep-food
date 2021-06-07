@@ -68,9 +68,8 @@ namespace grep_food.Controllers
              return View(data.Select(x => new BaseIngredientViewModel
               {
                   Id = x.Id,
-                  Name = x.Name,
-
-              }));
+                  Name = x.Name
+             }).ToList());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
