@@ -4,9 +4,9 @@ using System.Text;
 
 namespace grep_food.DataAccess.Dto
 {
-    public class BaseIngredientDto
+    class BaseIngredientDto
     {
-        
+
         public BaseIngredientDto(Guid id, string name)
         {
             Id = id;
