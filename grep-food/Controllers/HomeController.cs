@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using grep_food.DataAccess;
 using grep_food.DomainEntities;
+using System.Dynamic;
+
 //using Tap2021Demo.Infrastructure.DataAccess;
 
 namespace grep_food.Controllers
@@ -62,6 +64,7 @@ namespace grep_food.Controllers
         public IActionResult Search()
         {
             var data = _dataRepository.Query<BaseIngredient>().Take(15).ToArray();
+ 
             return View(data.Select(x => new BaseIngredientViewModel
             {
                 Id = x.Id,

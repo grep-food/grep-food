@@ -1,12 +1,11 @@
-﻿@{
+﻿@using grep_food.DomainEntities;
+@{
     ViewData["Title"] = "Search";
     ViewData["ShowButtons"] = true;
-
 
 }
 
 <h1>Choose your Ingredients</h1>
-
 
 <style>
     .btn {
@@ -15,30 +14,38 @@
 </style>
 
 <br />
-<table>
-    @if (Model == null)
-    {
-        <tr>
-            <td>
-                Ingredient doesn't exists!!!!
-            </td>
-        </tr>
-    }
-    else
-    {
-        foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    <input id="isActive" name="isActive" type="checkbox" value="false" /> @item.Name
-                </td>
-            </tr>
-        }
-    }
-</table>
+
+@if (Model == null)
+{
+    <tr>
+        <td>
+            Ingredient doesn't exists!!!!
+        </td>
+    </tr>
+}
+else
+{
+
+    <form action="/Search/Index" method="post">
+        <table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+
+                        <input name="checkIngredient" type="checkbox" value="@item.Name" /> @item.Name
+
+                    </td>
+                </tr>
+            }
+        </table>
+        <div class="input-group-append">
+            <button class="btn btn-primary" name="Start" type="submit"> START </button>
+        </div>
+    </form>
+}
+
+
 <br />
 <br />
-<div class="input-group-append">
-    <button class="btn btn-primary" name="Start" type="submit"  onclick="location.href='@Url.Action("Index", "Search")'"> START </button>
-</div>
 
