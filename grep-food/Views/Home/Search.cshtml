@@ -1,5 +1,4 @@
-﻿@using grep_food.DomainEntities;
-@{
+﻿@{
     ViewData["Title"] = "Search";
     ViewData["ShowButtons"] = true;
 
@@ -26,7 +25,8 @@
 else
 {
 
-    <form action="/Search/Index" method="post">
+    @using (Html.BeginForm("Index", "Search"))
+    {
         <table>
             @foreach (var item in Model)
             {
@@ -34,6 +34,7 @@ else
                     <td>
 
                         <input name="checkIngredient" type="checkbox" value="@item.Name" /> @item.Name
+                    <script>var data1 = $('#checkIngredient').attr('value');</script>
 
                     </td>
                 </tr>
@@ -42,10 +43,17 @@ else
         <div class="input-group-append">
             <button class="btn btn-primary" name="Start" type="submit"> START </button>
         </div>
-    </form>
+    }
 }
 
+<script>
+
+    $.ajax({
+        type: "GET",
+        url: "SearchController\Index",
+        data: { input1: data1, input2: data2 },
+    });
+</script>
 
 <br />
 <br />
-
