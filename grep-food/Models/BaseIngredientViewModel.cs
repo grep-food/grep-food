@@ -1,7 +1,9 @@
-﻿using grep_food.DataAccess;
+using grep_food.DataAccess;
 using grep_food.DataAccess.Dto;
 using System;
 using System.Linq;
+using System.Collections.Generic;
+
 
 namespace grep_food.Models
 {
@@ -9,6 +11,7 @@ namespace grep_food.Models
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+
 
 
         public static BaseIngredientViewModel GetFromId(Guid id, IDataRepository _dataRepository)
@@ -21,6 +24,16 @@ namespace grep_food.Models
 
             };
         }
+        public bool isChecked{ get; set; }
+
+      
+
+        
 
     }
+
+   /*public class BaseIngredientsList
+    {
+        public List<BaseIngredientViewModel> _listOfBaseIngredients { get; set; }
+    }*/
 }

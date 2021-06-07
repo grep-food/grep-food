@@ -8,11 +8,9 @@ namespace grep_food.DomainEntities
     
         public Guid Id { get; set; }
         public string Name { get; set; }
-
-        public BaseIngredient(Guid id, string name)
+        public BaseIngredient()
         {
-            Id = id;
-            Name = name;
+            Id = Guid.NewGuid();
         }
     }
 }
