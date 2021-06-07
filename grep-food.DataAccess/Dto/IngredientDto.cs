@@ -5,23 +5,27 @@ using grep_food.DomainEntities;
 
 namespace grep_food.DataAccess.Dto
 {
-    public class IngredientDto
+    class IngredientDto
     {
         public IngredientDto()
         {
         }
 
-        public IngredientDto(Guid id, string name, Guid baseIngredient)
+        public IngredientDto(Guid id, string name, BaseIngredient baseIngredient,decimal quantity,string unit)
         {
             Id = id;
-            FullName = name;
-            BaseIngredient_ID = baseIngredient;
-            
+            Name = name;
+            BaseIngredient = baseIngredient;
+            Quantity = quantity;
+            Unit = unit;
+
         }
 
         public Guid Id { get; set; }
-        public string FullName { get; set; }
-        public Guid BaseIngredient_ID { get; set; }
-      
+        public string Name { get; set; }
+        public BaseIngredient BaseIngredient { get; set; }
+        public decimal Quantity { get; set; }
+
+        public string Unit { get; set; }
     }
 }

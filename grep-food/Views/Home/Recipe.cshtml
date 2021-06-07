@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<html>
+
+
+<head>
+
+    <style>
+        body {
+            background-color: #000000;
+            font-size: xxx-large;
+            color: steelblue;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+
+</head>
+<body>
+
+    Hello werdl
+    <table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+        </tr>
+    }
+
+        </table>
+</body>
+
+</html>
+@{
+    
+}
