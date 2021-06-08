@@ -13,10 +13,8 @@ namespace grep_food.Controllers
     public class SearchController : Controller
     {
         private readonly IDataRepository _dataRepository;
-        //public HomeController(ILogger<HomeController> logger, IDataRepository dataRepository)
         public SearchController(IDataRepository dataRepository)
         {
-            // _logger = logger;
             Console.WriteLine($"dataRepo: '{_dataRepository}'");
             _dataRepository = dataRepository;
         }
@@ -43,8 +41,8 @@ namespace grep_food.Controllers
             if (BaseingChecked.Count != 0)
             {
                 foreach (var ids in BaseingChecked) {
-                    ingredients = _dataRepository.Query<IngredientDto>().Where(x => x.BaseIngredient_ID == ids.Id).ToList();
-                    
+                    List<IngredientDto> ingredients_temp = _dataRepository.Query<IngredientDto>().Where(x => x.BaseIngredient_ID == ids.Id).ToList();
+                    ingredients.AddRange(ingredients_temp);
                     //recipes = recipes.Where(x => x.Name.Equals("Eastern European Kotlety")).ToList();
                 } 
             }
@@ -52,8 +50,8 @@ namespace grep_food.Controllers
             {
                 foreach (var ids in ingredients)
                 {
-                    recipesIngredient = _dataRepository.Query<RecipeIngredientDto>().Where(x => x.IngredientId == ids.Id).ToList();
-
+                    List<RecipeIngredientDto> recipesIngredient_temp = _dataRepository.Query<RecipeIngredientDto>().Where(x => x.IngredientId == ids.Id).ToList();
+                    recipesIngredient.AddRange(recipesIngredient_temp);
                     //recipes = recipes.Where(x => x.Name.Equals("Eastern European Kotlety")).ToList();
                 }
             }
@@ -67,10 +65,23 @@ namespace grep_food.Controllers
             {
                 foreach (var _recipe in recipesIngredient)
                 {
-                    recipes = _dataRepository.Query<RecipeDto>().Where(x => x.Id== _recipe.RecipeId).ToList();
+                   List<RecipeDto> recipes_temp = _dataRepository.Query<RecipeDto>().Where(x => x.Id== _recipe.RecipeId).ToList();
+                    recipes.AddRange(recipes_temp);
                 }
             }
             Console.WriteLine(recipes.Count());
+
+            for(int i = 0; i< recipes.Count(); i++)
+            {
+                for (int j = i + 1; j < recipes.Count(); j++)
+                {
+                    if (recipes[i].Id == recipes[j].Id)
+                    {
+                        recipes.RemoveAt(i);
+                    }
+                }
+            }
+
             foreach (var ids in recipes)
             {
                 Console.WriteLine("id: " + ids.Id + " select: " + ids.Name);
