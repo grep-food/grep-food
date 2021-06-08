@@ -7,14 +7,22 @@
 <div class="intro-text left-0 bg-faded p-5 rounded">
     <h1 class="text-center">View one recipe</h1>
     <table>
-        @foreach (var item in Model)
+        @if (Model == null)
         {
-
             <tr>
-                <td>@item.Name</td>
+                <td>There are no recipes with this ingredients</td>
             </tr>
         }
+        else
+        {
+            @foreach (var item in Model)
+            {
 
+                <tr>
+                    <td>@item.Name</td>
+                </tr>
+            }
+        }
     </table>
 
 </div>
