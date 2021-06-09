@@ -39,6 +39,19 @@ namespace grep_food.Models
         }
 
         public static string[] SeparateInstructions(string Instructions) => Instructions.Split('\n');
+        
+        public static Guid GenerateRandomId(IDataRepository _dataRepository)
+        {
+            var ListOfRecipes= _dataRepository.Query<RecipeDto>().Select(x=>x.Id).ToList();
+            DateTime today = DateTime.Now;
+            var DateTuple = Tuple.Create(today.Year, today.Month, today.Day);
+            int NumberOfRecipes = ListOfRecipes.Count();
+            Random RngGod = new Random(DateTuple.GetHashCode());
 
+            var it =ListOfRecipes[RngGod.Next(NumberOfRecipes)];
+
+            return it;
+        }
     }
+    
 }

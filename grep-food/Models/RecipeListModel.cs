@@ -11,4 +11,5 @@ namespace grep_food.Models
         public IEnumerable<BaseIngredient> SelectedIngredients{ get; set; }
         public IEnumerable<Recipe> FindRecipes{ get; set; }
     }
+
 }
