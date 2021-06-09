@@ -3,11 +3,11 @@
 *@
 @{
 }
-
+@model List<RecipeViewModel>
 <div class="intro-text left-0 bg-faded p-5 rounded">
     <h1 class="text-center">View one recipe</h1>
     <table>
-        @if (Model == null)
+        @if (Model == null || Model.Count()==0)
         {
             <tr>
                 <td>There are no recipes with this ingredients</td>

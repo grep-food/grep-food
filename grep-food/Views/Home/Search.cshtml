@@ -19,37 +19,32 @@
     <br />
     @using (Html.BeginForm("Index", "Search", FormMethod.Post))
     {
-        <table>
+        <div class="UberCheckBox">
             @if (Model == null)
             {
-                <tr>
-                    <td>
-                        Ingredient doesn't exist!!!!
-                    </td>
-                </tr>
+
+                <p> Ingredient doesn't exist!!!!</p>
+
             }
             else
             {
 
                 for (int i = 0; i < Model.Count(); i++)
                 {
+                    <div class="CheckBox">
 
+                        @* <input id="@(item.Id)" name="@(item.Id)" type="checkbox" value="false" /> @item.Name*@
+                        @Html.CheckBoxFor(m => m[i].isChecked)
 
-                    <tr>
-                        <td>
-                            @* <input id="@(item.Id)" name="@(item.Id)" type="checkbox" value="false" /> @item.Name*@
-                            @Html.CheckBoxFor(m => m[i].isChecked)
+                        @Html.DisplayFor(m => m[i].Name)
+                        @Html.HiddenFor(m => m[i].Name)
+                        @Html.HiddenFor(m => m[i].Id)
 
-                            @Html.DisplayFor(m => m[i].Name)
-                            @Html.HiddenFor(m => m[i].Name)
-                            @Html.HiddenFor(m => m[i].Id)
-
-                        </td>
-                    </tr>
+                    </div>
                 }
 
             }
-        </table>
+        </div>
         <div class="input-group-append">
             <button class="btn btn-primary" name="Start" type="submit"> START </button>
         </div>
