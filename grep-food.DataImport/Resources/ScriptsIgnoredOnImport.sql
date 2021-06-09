@@ -2217,13 +2217,7 @@ GO
 GO
     
 
-    INSERT INTO [dbo].[BaseIngredients]
-           ([Id]
-           ,[Name])
-     VALUES
-           (CAST('66857534-f9ec-4396-8d0d-008b702cd5f8' AS UNIQUEIDENTIFIER)
-           ,N'buttermilk')
-GO
+
     
 
     INSERT INTO [dbo].[BaseIngredients]

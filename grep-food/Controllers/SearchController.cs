@@ -24,71 +24,25 @@ namespace grep_food.Controllers
             List<BaseIngredientViewModel> BaseingChecked = new List<BaseIngredientViewModel>();
             foreach (var ids in Baseing)
             {
-              //  Console.WriteLine("id: " + ids.Name + " select: " + ids.isChecked);
+                //  Console.WriteLine("id: " + ids.Name + " select: " + ids.isChecked);
                 if (ids.isChecked)
                     BaseingChecked.Add(ids);
 
             }
-            /*  foreach (var ids in BaseingChecked)
-              {
-                  Console.WriteLine("id: " + ids.Name + " select: " + ids.isChecked);
 
-              }*/
-            List<RecipeDto> recipes = new List<RecipeDto>(); //_dataRepository.Query<RecipeDto>().ToList();
-            List<RecipeIngredientDto> recipesIngredient = new List<RecipeIngredientDto>();
-            List<IngredientDto> ingredients = new List<IngredientDto>();
-           
-            if (BaseingChecked.Count != 0)
-            {
-                foreach (var ids in BaseingChecked) {
-                    List<IngredientDto> ingredients_temp = _dataRepository.Query<IngredientDto>().Where(x => x.BaseIngredient_ID == ids.Id).ToList();
-                    ingredients.AddRange(ingredients_temp);
-                    //recipes = recipes.Where(x => x.Name.Equals("Eastern European Kotlety")).ToList();
-                } 
-            }
-            if (ingredients.Count != 0)
-            {
-                foreach (var ids in ingredients)
-                {
-                    List<RecipeIngredientDto> recipesIngredient_temp = _dataRepository.Query<RecipeIngredientDto>().Where(x => x.IngredientId == ids.Id).ToList();
-                    recipesIngredient.AddRange(recipesIngredient_temp);
-                    //recipes = recipes.Where(x => x.Name.Equals("Eastern European Kotlety")).ToList();
-                }
-            }
-            Console.WriteLine(ingredients.Count());
-            foreach (var ids in ingredients)
-            {
-                Console.WriteLine("id: " + ids.Id + " select: " + ids.FullName);
+            List<RecipeViewModel> recipes= _dataRepository.Query<RecipeDto>().ToList().Select(x=>RecipeViewModel.ViewmodelFromDto(x,_dataRepository)).ToList();
+            List<RecipeViewModel> RecipeIntersection = GetIntersectionOfRecipes(BaseingChecked,recipes);
 
-            }
-            if (recipesIngredient.Count != 0)
-            {
-                foreach (var _recipe in recipesIngredient)
-                {
-                   List<RecipeDto> recipes_temp = _dataRepository.Query<RecipeDto>().Where(x => x.Id== _recipe.RecipeId).ToList();
-                    recipes.AddRange(recipes_temp);
-                }
-            }
-            Console.WriteLine(recipes.Count());
 
-            for(int i = 0; i< recipes.Count(); i++)
-            {
-                for (int j = i + 1; j < recipes.Count(); j++)
-                {
-                    if (recipes[i].Id == recipes[j].Id)
-                    {
-                        recipes.RemoveAt(i);
-                    }
-                }
-            }
 
-            foreach (var ids in recipes)
-            {
-                Console.WriteLine("id: " + ids.Id + " select: " + ids.Name);
 
-            }
-            return View(recipes);
+            return View(RecipeIntersection);
+        }
+        public List<RecipeViewModel> GetIntersectionOfRecipes(List<BaseIngredientViewModel> BaseIngredients, List<RecipeViewModel> Recipes)
+        {
+            return Recipes.Where(x => x.ContainsMultipleIngredients(BaseIngredients)).ToList();
         }
 
     }
+
 }

@@ -41,7 +41,7 @@ namespace grep_food.Controllers
 
         public IActionResult Search()
         {
-             var data = _dataRepository.Query<BaseIngredientDto>().Take(15).ToArray();
+             var data = _dataRepository.Query<BaseIngredientDto>().ToArray();
 
              return View(data.Select(x => new BaseIngredientViewModel
               {

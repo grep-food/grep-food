@@ -61,13 +61,15 @@ namespace grep_food.DataImport
         }
         static void AddValues(SqlConnection conn)
         {
-            string[] insertvalues = Regex.Split(SQLfiles.ScriptsIgnoredOnImport,
+     
+            string[] insertvalues = Regex.Split(SQLfiles.ScriptsIgnoredOnImport.Replace("\r",""),
                                          "\n *GO *\n");
-             
+            Console.WriteLine("insertvalues len: " + insertvalues.Length);
             //var insertvalues = SQLfiles.ScriptsIgnoredOnImport.Split("\nGO\n");
             foreach(var insert in insertvalues)
             {
-                Console.WriteLine("inserted stuff: " + insert);
+               // Console.WriteLine("inserted stuff: " + insert);
+               
 
                 SqlCommand command = new SqlCommand(insert, conn);
                 command.ExecuteNonQuery();
