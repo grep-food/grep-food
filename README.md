@@ -1,3 +1,3 @@
 # grep-food
-This application is about a journal that manages daily recipes for you.  
-![Diagram](https://github.com/grep-food/grep-food/blob/database/Images/DbDiagram.png)
+This application searches for recipes that contain user selected ingredients.  
+![Diagram](https://github.com/grep-food/grep-food/blob/main/Images/DbDiagram.png)
