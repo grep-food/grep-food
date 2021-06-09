@@ -18,9 +18,9 @@
             @foreach (var item in Model)
             {
 
-                <tr>
-                    <td>@item.Name</td>
-                </tr>
+    <tr>
+        <td><a href="~/Recipe/Index?id=@item.Id">@item.Name</a></td>
+    </tr>
             }
         }
     </table>
