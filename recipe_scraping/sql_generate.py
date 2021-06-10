@@ -13,7 +13,7 @@ def read_json_from_file(file) -> dict:
     return None
 
 import glob
-from thing import join_lists
+from get_single_json import join_lists
 #
 liszt=[ read_json_from_file(f) for f in glob.glob("recipes_/*.json") ]
 

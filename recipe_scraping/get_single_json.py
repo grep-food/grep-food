@@ -18,7 +18,7 @@ def unique(og):
     return a
 def write_recipe_to_file(link):
     from recipe_scrapers import scrape_me
-    scraper = scrape_me(link, wild_mode=True)
+    scraper = scrape_me(link)
 
     # and we should somehow do smth like this:
     # but with our data
