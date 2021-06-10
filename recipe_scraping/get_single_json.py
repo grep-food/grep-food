@@ -12,7 +12,7 @@ def join_lists(big_list):
 
         liszt+=l
     return liszt
-def unique(og): 
+def unique(og):
     a = list(set(og))
     a.sort()
     return a
@@ -20,8 +20,6 @@ def write_recipe_to_file(link):
     from recipe_scrapers import scrape_me
     scraper = scrape_me(link)
 
-    # and we should somehow do smth like this:
-    # but with our data
     ingredients = scraper.ingredients()
     write_json_to_file("recipes/"+scraper.title(), {
         #zis is a dictionary
@@ -43,7 +41,6 @@ def remove_leading_number(name):
 
     return name
 def remove_parens(name):
-    # (stuff) more (sthfutff )
     if match := re.match(r"\((.*?)\) (.*)", name):
         return match.group(2)
     return name
@@ -94,14 +91,11 @@ def remove_dumb_thing(name):
 
 
 def extract_ingredient(name):
-    #if "thing" in name: # name.contains("thing") -> 
-    #ie "2 carrots, grated" => carrots
 
     dumber_things = ["chicken breast", "corned beef", "potatoes"]
 
     for dt in dumber_things:
         if dt in name:
-            #print("returnink", dt)
             return [dt]
 
     thing = name.split(',')[0]
@@ -132,12 +126,12 @@ def extract_ingredient(name):
 
     if thing in ["salt and pepper", "salt and ground black pepper"]:
         return ["salt", "peper"]
-        
+
     return [thing]
-    
+
 
 # baked chicken reuben breast half
-#large head, uncooked, dried, fresh 
+#large head, uncooked, dried, fresh
 #beaten - Mazurek (Polish easter cake)
 #sliced- Reuben Casserole
 #

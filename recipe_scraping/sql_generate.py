@@ -14,8 +14,10 @@ def read_json_from_file(file) -> dict:
 
 import glob
 from get_single_json import join_lists
+
+
 #
-liszt=[ read_json_from_file(f) for f in glob.glob("recipes_/*.json") ]
+liszt=[ read_json_from_file(f) for f in glob.glob("recipes/*.json") ]
 
 just_ingredients = set(join_lists([liszt2["just_ingredients"] for liszt2 in liszt]))
 import uuid
@@ -26,7 +28,6 @@ def get_id():
 just_ingredients_dict = { i: get_id() for i in just_ingredients }
 
 ingredients = set(join_lists([liszt2["ingredients"] for liszt2 in liszt]))
-
 
 def base_ingredient_id_from_ingredient(name): # "1 pound of garlic" -> "garlic"
     for i in just_ingredients:
@@ -67,15 +68,11 @@ for r in liszt:
             "IngredientId": ingredients_dict[i]["Id"],
         })
 
-# generating the sql:
-
-# print("""USE [grep-food-database]
-# GO""")
 
 def escape_quotes(thing):
     return thing.replace("'", "''")
 
-def print_recipe_sql(entry):
+def print_recipe_sql(entry, f):
     print(f"""INSERT INTO [dbo].[Recipes]
            ([Id]
            ,[Name]
@@ -88,9 +85,9 @@ def print_recipe_sql(entry):
            ,'{entry["TimeMinutes"]}'
            ,N'{escape_quotes(entry["Instructions"])}'
            ,N'{escape_quotes(entry["Image"])}')
-GO""")
+    GO""", file=f)
 
-def print_ingredients_sql(entry):
+def print_ingredients_sql(entry, f):
     print(f"""
         INSERT INTO [dbo].[Ingredients]
            ([Id]
@@ -100,11 +97,11 @@ def print_ingredients_sql(entry):
            ({entry["Id"]}
            ,{entry["BaseIngredientId"]}
            ,N'{escape_quotes(entry["Name"])}')
-GO
-        """)
+    GO
+        """, file =f)
 
 
-def print_base_ingredients_sql(id, name):
+def print_base_ingredients_sql(id, name, f):
     print(f"""
     INSERT INTO [dbo].[BaseIngredients]
            ([Id]
@@ -112,10 +109,10 @@ def print_base_ingredients_sql(id, name):
      VALUES
            ({id}
            ,N'{escape_quotes(name)}')
-GO
-    """)
+    GO
+    """, file=f)
 
-def print_recipe_ingredients_sql(entry):
+def print_recipe_ingredients_sql(entry, f):
     print(f"""
     INSERT INTO [dbo].[RecipeIngredients]
            ([RecipeId]
@@ -124,18 +121,17 @@ def print_recipe_ingredients_sql(entry):
            ({entry["RecipeId"]}
            ,{entry["IngredientId"]})
 GO
-    """)
+    """, file=f)
 
+with open("thing.sql", 'w') as the_file:
+    for entry in recipes:
+        print_recipe_sql(entry, the_file)
 
-for entry in recipes:
-    print_recipe_sql(entry)
+    for name, id in just_ingredients_dict.items():
+        print_base_ingredients_sql(id, name, the_file)
 
-for name, id in just_ingredients_dict.items():
-    print_base_ingredients_sql(id, name)
+    for entry in ingredients_dict.values():
+        print_ingredients_sql(entry, the_file)
 
-for entry in ingredients_dict.values():
-    print_ingredients_sql(entry)
-
-
-for entry in recipeIngredients:
-    print_recipe_ingredients_sql(entry)
+    for entry in recipeIngredients:
+        print_recipe_ingredients_sql(entry, the_file)

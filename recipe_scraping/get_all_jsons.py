@@ -9,7 +9,8 @@ links_zwo_drei = recipe_scrapers.scrape_me(s).links()
 import re
 import os
 
-# os.mkdir("recipes")
+if not os.path.exists('recipes'):
+    os.mkdir("recipes")
 
 links = set(filter(lambda hr: re.match(r"https://www.allrecipes.com/recipe/", hr),
      map(lambda x: x["href"], links_zwo_drei)))
